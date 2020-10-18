@@ -2,14 +2,14 @@
     <app-layout>
         <v-row class="justify-center pt-16">
             <div class="text-center">
-                 <div>
-                     <h1 class="text-4xl">
-                         Welcome to the {{ $page.env.appName }}!
-                     </h1>
+                 <div class="text-4xl">
+                     Welcome to the {{ $page.env.appName }}!
                 </div>
-                <v-btn class="mt-2">
-                    Go to the subscribers list
-                </v-btn>
+                <inertia-link href="/subscribers">
+                    <v-btn class="mt-4">
+                        Go to the subscribers list
+                    </v-btn>
+                </inertia-link>
             </div>
         </v-row>
     </app-layout>

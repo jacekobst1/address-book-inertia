@@ -24149,7 +24149,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "min-h-screen bg-gray-100" },
+    { staticClass: "min-h-screen" },
     [
       _c("Navbar"),
       _vm._v(" "),
@@ -24880,21 +24880,26 @@ var render = function() {
           "div",
           { staticClass: "text-center" },
           [
-            _c("div", [
-              _c("h1", { staticClass: "text-4xl" }, [
-                _vm._v(
-                  "\n                     Welcome to the " +
-                    _vm._s(_vm.$page.env.appName) +
-                    "!\n                 "
-                )
-              ])
+            _c("div", { staticClass: "text-4xl" }, [
+              _vm._v(
+                "\n                 Welcome to the " +
+                  _vm._s(_vm.$page.env.appName) +
+                  "!\n            "
+              )
             ]),
             _vm._v(" "),
-            _c("v-btn", { staticClass: "mt-2" }, [
-              _vm._v(
-                "\n                Go to the subscribers list\n            "
-              )
-            ])
+            _c(
+              "inertia-link",
+              { attrs: { href: "/subscribers" } },
+              [
+                _c("v-btn", { staticClass: "mt-4" }, [
+                  _vm._v(
+                    "\n                    Go to the subscribers list\n                "
+                  )
+                ])
+              ],
+              1
+            )
           ],
           1
         )

@@ -24,8 +24,5 @@ export default {
     components: {
         NavLink,
     },
-    created() {
-        console.log('wtf');
-    }
 }
 </script>

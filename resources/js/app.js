@@ -15,7 +15,7 @@ Vue.use(PortalVue);
 const app = document.getElementById('app');
 
 new Vue({
-    Vuetify,
+    vuetify: Vuetify,
     render: (h) =>
         h(InertiaApp, {
             props: {

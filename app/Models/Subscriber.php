@@ -16,13 +16,17 @@ class Subscriber extends Model
         'address',
     ];
 
+    protected $appends = [
+        'gender'
+    ];
+
     public const genderTypes = [
         1 => 'male',
         2 => 'female',
         3 => 'other'
     ];
 
-    public function getGenderType(): string {
+    public function getGenderAttribute(): string {
         return self::genderTypes[$this->gender_type_id];
     }
 }

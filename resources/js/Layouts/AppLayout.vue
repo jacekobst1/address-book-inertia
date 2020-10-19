@@ -4,7 +4,7 @@
        <Navbar />
 
         <main>
-            <v-container>
+            <v-container class="mt-16">
                 <slot />
             </v-container>
         </main>

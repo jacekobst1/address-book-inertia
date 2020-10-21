@@ -1,16 +1,18 @@
 <template>
-    <div class="min-h-screen">
+    <v-app>
+        <div class="min-h-screen">
 
-       <Navbar />
+            <Navbar />
 
-        <main>
-            <v-container class="mt-16">
-                <slot />
-            </v-container>
-        </main>
+            <main>
+                <v-container class="mt-16">
+                    <slot />
+                </v-container>
+            </main>
 
-        <portal-target name="modal" multiple />
-    </div>
+            <portal-target name="modal" multiple />
+        </div>
+    </v-app>
 </template>
 
 <script>

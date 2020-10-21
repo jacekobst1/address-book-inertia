@@ -6,12 +6,12 @@
         class="elevation-1"
     >
         <template v-slot:item.buttons>
-            <v-btn x-small>
+            <v-btn small color="yellow">
                 <v-icon>
                     mdi-pencil
                 </v-icon>
             </v-btn>
-            <v-btn x-small>
+            <v-btn small color="error">
                 <v-icon>
                     mdi-delete
                 </v-icon>

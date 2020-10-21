@@ -9,12 +9,14 @@
             </v-icon>
         </v-text-field>
         <v-spacer />
-        <v-btn>
-            <v-icon class="mr-2">
-                mdi-plus
-            </v-icon>
-            Add new
-        </v-btn>
+        <inertia-link href="/subscribers/add">
+            <v-btn color="success">
+                <v-icon class="mr-2">
+                    mdi-plus
+                </v-icon>
+                Add new
+            </v-btn>
+        </inertia-link>
     </v-toolbar>
 </template>
 

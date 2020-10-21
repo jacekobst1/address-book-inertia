@@ -18,7 +18,9 @@ class SubscriberController extends Controller
 
     public function create()
     {
-        //
+        return Inertia::render('Subscribers/Create', [
+            'genderTypes' => Subscriber::genderTypes
+        ]);
     }
 
     public function store(Request $request)

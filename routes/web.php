@@ -18,8 +18,11 @@ use App\Http\Controllers\HomeController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('/subscribers')->group(function() {
-    Route::get('/', [SubscriberController::class, 'index']);
-    Route::get('/add', [SubscriberController::class, 'create']);
-    Route::post('/', [SubscriberController::class, 'store']);
+    Route::get('/',                 [SubscriberController::class, 'index']);
+    Route::get('/add',              [SubscriberController::class, 'create']);
+    Route::post('/',                [SubscriberController::class, 'store']);
+    Route::get('/{subscriber}',     [SubscriberController::class, 'edit']);
+    Route::put('/{subscriber}',     [SubscriberController::class, 'update']);
+
 });
 

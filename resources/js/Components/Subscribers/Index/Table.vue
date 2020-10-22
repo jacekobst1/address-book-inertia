@@ -5,12 +5,14 @@
         item-key="name"
         class="elevation-1"
     >
-        <template v-slot:item.buttons>
-            <v-btn small color="yellow">
-                <v-icon>
-                    mdi-pencil
-                </v-icon>
-            </v-btn>
+        <template v-slot:item.buttons="{ item }" >
+            <inertia-link :href="'/subscribers/' + item.id">
+                <v-btn small color="yellow">
+                    <v-icon>
+                        mdi-pencil
+                    </v-icon>
+                </v-btn>
+            </inertia-link>
             <v-btn small color="error">
                 <v-icon>
                     mdi-delete

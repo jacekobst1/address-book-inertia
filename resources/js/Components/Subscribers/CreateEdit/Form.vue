@@ -57,10 +57,15 @@
         <v-btn
             :disabled="!valid"
             color="success"
-            class="mr-4"
+            class="mr-4 float-right"
             @click="submit"
         >
-            Create
+            <span v-if="this.editMode">
+                Update
+            </span>
+            <span v-else>
+                Create
+            </span>
         </v-btn>
     </v-form>
 </template>
@@ -68,6 +73,7 @@
 <script>
     export default {
         data: () => ({
+            editMode: false,
             valid: true,
             subscriber: {
                 first_name: '',
@@ -96,15 +102,25 @@
             genderTypes() {
                 const genderTypes = [];
                 for (const [key, value] of Object.entries(this.$page.genderTypes)) {
-                    genderTypes.push({text: value, value: key});
+                    genderTypes.push({text: value, value: parseInt(key)});
                 }
                 return genderTypes;
             }
         },
+        created() {
+          if (this.$page.subscriber) {
+              this.subscriber = this.$page.subscriber;
+              this.editMode = true;
+          }
+        },
         methods: {
             submit() {
                 if (this.$refs.form.validate()) {
-                    this.$inertia.post('/subscribers', this.subscriber);
+                    if (this.editMode) {
+                        this.$inertia.put(`/subscribers/${this.subscriber.id}`, this.subscriber);
+                    } else {
+                        this.$inertia.post('/subscribers', this.subscriber);
+                    }
                 }
             },
         },

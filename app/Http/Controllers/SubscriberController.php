@@ -6,7 +6,7 @@ use App\Http\Requests\SaveSubscriberRequest;
 use App\Models\Subscriber;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use Inertia\Response;
+use Inertia\Response as InertiaResponse;
 use App\Services\SubscriberService;
 
 class SubscriberController extends Controller
@@ -17,7 +17,7 @@ class SubscriberController extends Controller
         $this->service = $service;
     }
 
-    public function index(): Response
+    public function index(): InertiaResponse
     {
         return $this->service->index();
     }
@@ -27,25 +27,21 @@ class SubscriberController extends Controller
         return $this->service->create();
     }
 
-    public function store(SaveSubscriberRequest $request): Response
+    public function store(SaveSubscriberRequest $request): InertiaResponse
     {
         $this->service->store($request->validated());
         return $this->service->index();
     }
 
-    public function show($id)
+    public function edit(Subscriber $subscriber): InertiaResponse
     {
-        //
+        return $this->service->edit($subscriber);
     }
 
-    public function edit($id)
+    public function update(Subscriber $subscriber, SaveSubscriberRequest $request): InertiaResponse
     {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
+        $this->service->update($subscriber, $request->validated());
+        return $this->service->index();
     }
 
     public function destroy($id)

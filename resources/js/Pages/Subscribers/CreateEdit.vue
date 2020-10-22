@@ -6,7 +6,7 @@
 
 <script>
     import AppLayout from './../../Layouts/AppLayout'
-    import SubscribersAddForm from '../../Components/Subscribers/Create/Form';
+    import SubscribersAddForm from '../../Components/Subscribers/CreateEdit/Form';
 
     export default {
         components: {

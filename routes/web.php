@@ -20,5 +20,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::prefix('/subscribers')->group(function() {
     Route::get('/', [SubscriberController::class, 'index']);
     Route::get('/add', [SubscriberController::class, 'create']);
+    Route::post('/', [SubscriberController::class, 'store']);
 });
 

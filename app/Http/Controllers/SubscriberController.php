@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SaveSubscriberRequest;
 use App\Models\Subscriber;
-use Illuminate\Http\Request;
-use Inertia\Inertia;
 use Inertia\Response as InertiaResponse;
 use App\Services\SubscriberService;
 

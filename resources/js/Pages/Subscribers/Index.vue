@@ -12,9 +12,9 @@ import SubscribersIndexTable from '../../Components/Subscribers/Index/Table';
 
 export default {
     components: {
-        SubscribersIndexTable,
-        SubscribersIndexToolbar,
         AppLayout,
+        SubscribersIndexToolbar,
+        SubscribersIndexTable,
     },
 }
 </script>

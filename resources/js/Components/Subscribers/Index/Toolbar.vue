@@ -1,13 +1,5 @@
 <template>
     <v-toolbar flat>
-        <v-text-field
-            label="Search"
-            hide-details="auto"
-        >
-            <v-icon slot="append">
-                mdi-magnify
-            </v-icon>
-        </v-text-field>
         <v-spacer />
         <inertia-link href="/subscribers/add">
             <v-btn color="success">
@@ -22,6 +14,6 @@
 
 <script>
     export default {
-        name: 'SubscribersIndexToolbar'
+        name: 'SubscribersIndexToolbar',
     }
 </script>

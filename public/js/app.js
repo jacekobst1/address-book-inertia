@@ -2182,10 +2182,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'SubscribersIndexTable',
   data: function data() {
     return {
+      search: '',
       headers: [{
         text: 'First name',
         value: 'first_name'
@@ -2233,14 +2242,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -4125,9 +4126,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    SubscribersIndexTable: _Components_Subscribers_Index_Table__WEBPACK_IMPORTED_MODULE_2__["default"],
+    AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
     SubscribersIndexToolbar: _Components_Subscribers_Index_Toolbar__WEBPACK_IMPORTED_MODULE_1__["default"],
-    AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
+    SubscribersIndexTable: _Components_Subscribers_Index_Table__WEBPACK_IMPORTED_MODULE_2__["default"]
   }
 });
 
@@ -23730,9 +23731,29 @@ var render = function() {
     attrs: {
       items: _vm.$page.subscribers,
       headers: _vm.headers,
-      "item-key": "name"
+      "item-key": "name",
+      search: _vm.search
     },
     scopedSlots: _vm._u([
+      {
+        key: "top",
+        fn: function() {
+          return [
+            _c("v-text-field", {
+              staticClass: "mx-4 pt-5",
+              attrs: { label: "Search" },
+              model: {
+                value: _vm.search,
+                callback: function($$v) {
+                  _vm.search = $$v
+                },
+                expression: "search"
+              }
+            })
+          ]
+        },
+        proxy: true
+      },
       {
         key: "item.buttons",
         fn: function(ref) {
@@ -23807,17 +23828,6 @@ var render = function() {
     "v-toolbar",
     { attrs: { flat: "" } },
     [
-      _c(
-        "v-text-field",
-        { attrs: { label: "Search", "hide-details": "auto" } },
-        [
-          _c("v-icon", { attrs: { slot: "append" }, slot: "append" }, [
-            _vm._v("\n            mdi-magnify\n        ")
-          ])
-        ],
-        1
-      ),
-      _vm._v(" "),
       _c("v-spacer"),
       _vm._v(" "),
       _c(

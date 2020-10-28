@@ -12,6 +12,7 @@ class SubscriberService {
         $subscribers = Subscriber::orderBy('last_name')
             ->orderBy('first_name')
             ->get();
+
         return Inertia::render('Subscribers/Index', [
             'subscribers' => $subscribers,
         ]);

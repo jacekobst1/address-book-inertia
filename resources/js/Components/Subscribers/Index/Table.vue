@@ -4,7 +4,15 @@
         :headers="headers"
         item-key="name"
         class="elevation-1"
+        :search="search"
     >
+        <template v-slot:top>
+            <v-text-field
+                v-model="search"
+                label="Search"
+                class="mx-4 pt-5"
+            ></v-text-field>
+        </template>
         <template v-slot:item.buttons="{ item }" >
             <inertia-link :href="'/subscribers/' + item.id">
                 <v-btn
@@ -33,6 +41,7 @@
     export default {
         name: 'SubscribersIndexTable',
         data: () => ({
+            search: '',
             headers: [
                 { text: 'First name',    value: 'first_name' },
                 { text: 'Last name',     value: 'last_name' },

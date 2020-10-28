@@ -32,7 +32,7 @@ class SaveSubscriberRequest extends FormRequest
                                     'required',
                                     'string',
                                     'size:6',
-                                    'regex:/\d{2}-\d{3}/',
+                                    'regex:/^\d{2}-\d{3}$/',
                                 ],
             'city'              => 'required|string',
             'address'           => 'required|string',

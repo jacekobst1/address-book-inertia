@@ -9,14 +9,17 @@ use Inertia\Response as InertiaResponse;
 class SubscriberService {
 
     public function index(): InertiaResponse {
+        $subscribers = Subscriber::orderBy('last_name')
+            ->orderBy('first_name')
+            ->get();
         return Inertia::render('Subscribers/Index', [
-            'subscribers' => Subscriber::all(),
+            'subscribers' => $subscribers,
         ]);
     }
 
     public function create(): InertiaResponse {
         return Inertia::render('Subscribers/CreateEdit', [
-            'genderTypes' => Subscriber::genderTypes
+            'genderTypes' => Subscriber::genderTypes,
         ]);
     }
 
@@ -27,7 +30,7 @@ class SubscriberService {
     public function edit(Subscriber $subscriber): InertiaResponse {
         return Inertia::render('Subscribers/CreateEdit', [
             'subscriber' => $subscriber,
-            'genderTypes' => Subscriber::genderTypes
+            'genderTypes' => Subscriber::genderTypes,
         ]);
     }
 

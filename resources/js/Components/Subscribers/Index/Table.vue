@@ -7,13 +7,20 @@
     >
         <template v-slot:item.buttons="{ item }" >
             <inertia-link :href="'/subscribers/' + item.id">
-                <v-btn small color="yellow">
+                <v-btn
+                    color="yellow"
+                    small
+                >
                     <v-icon>
                         mdi-pencil
                     </v-icon>
                 </v-btn>
             </inertia-link>
-            <v-btn small color="error">
+            <v-btn
+                color="error"
+                small
+                @click="deleteSubscriber(item.id)"
+            >
                 <v-icon>
                     mdi-delete
                 </v-icon>
@@ -37,5 +44,12 @@
                 { text: '',              value: 'buttons' },
             ]
         }),
+        methods: {
+            deleteSubscriber(subscriberId) {
+                if (confirm('Are you sure you want to delete this subscriber?')) {
+                    this.$inertia.delete(`/subscribers/${subscriberId}`);
+                }
+            }
+        }
     }
 </script>

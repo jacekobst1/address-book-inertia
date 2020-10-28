@@ -2175,6 +2175,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'SubscribersIndexTable',
   data: function data() {
@@ -2205,6 +2212,13 @@ __webpack_require__.r(__webpack_exports__);
         value: 'buttons'
       }]
     };
+  },
+  methods: {
+    deleteSubscriber: function deleteSubscriber(subscriberId) {
+      if (confirm('Are you sure you want to delete this subscriber?')) {
+        this.$inertia["delete"]("/subscribers/".concat(subscriberId));
+      }
+    }
   }
 });
 
@@ -23730,7 +23744,7 @@ var render = function() {
               [
                 _c(
                   "v-btn",
-                  { attrs: { small: "", color: "yellow" } },
+                  { attrs: { color: "yellow", small: "" } },
                   [
                     _c("v-icon", [
                       _vm._v(
@@ -23746,7 +23760,14 @@ var render = function() {
             _vm._v(" "),
             _c(
               "v-btn",
-              { attrs: { small: "", color: "error" } },
+              {
+                attrs: { color: "error", small: "" },
+                on: {
+                  click: function($event) {
+                    return _vm.deleteSubscriber(item.id)
+                  }
+                }
+              },
               [
                 _c("v-icon", [
                   _vm._v("\n                mdi-delete\n            ")
@@ -85154,8 +85175,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/others/address_book_inertia/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /var/www/others/address_book_inertia/resources/css/app.css */"./resources/css/app.css");
+__webpack_require__(/*! /var/www/OTHERS/address_book_inertia/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /var/www/OTHERS/address_book_inertia/resources/css/app.css */"./resources/css/app.css");
 
 
 /***/ })

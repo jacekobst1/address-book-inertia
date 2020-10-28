@@ -23,6 +23,6 @@ Route::prefix('/subscribers')->group(function() {
     Route::post('/',                [SubscriberController::class, 'store']);
     Route::get('/{subscriber}',     [SubscriberController::class, 'edit']);
     Route::put('/{subscriber}',     [SubscriberController::class, 'update']);
-
+    Route::delete('/{subscriber}',  [SubscriberController::class, 'destroy']);
 });
 

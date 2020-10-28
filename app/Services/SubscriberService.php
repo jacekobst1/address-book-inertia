@@ -34,4 +34,8 @@ class SubscriberService {
     public function update(Subscriber  $subscriber, array $data): void {
         $subscriber->update($data);
     }
+
+    public function destroy(Subscriber  $subscriber): void {
+        $subscriber->delete();
+    }
 }

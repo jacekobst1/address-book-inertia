@@ -44,8 +44,9 @@ class SubscriberController extends Controller
         return $this->service->index();
     }
 
-    public function destroy($id)
+    public function destroy(Subscriber $subscriber)
     {
-        //
+        $this->service->destroy($subscriber);
+        return $this->service->index();
     }
 }

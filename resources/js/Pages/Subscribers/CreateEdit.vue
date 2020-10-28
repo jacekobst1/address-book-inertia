@@ -1,17 +1,20 @@
 <template>
     <app-layout>
-        <subscribers-add-form></subscribers-add-form>
+        <subscribers-toolbar class="mb-3" />
+        <subscribers-form />
     </app-layout>
 </template>
 
 <script>
     import AppLayout from './../../Layouts/AppLayout'
-    import SubscribersAddForm from '../../Components/Subscribers/CreateEdit/Form';
+    import SubscribersToolbar from "../../Components/Subscribers/CreateEdit/Toolbar";
+    import SubscribersForm from '../../Components/Subscribers/CreateEdit/Form';
 
     export default {
         components: {
             AppLayout,
-            SubscribersAddForm,
+            SubscribersToolbar,
+            SubscribersForm,
         },
     }
 </script>

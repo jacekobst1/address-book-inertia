@@ -2060,7 +2060,40 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'SubscribersCreateEditForm',
   data: function data() {
     return {
       editMode: false,
@@ -2083,6 +2116,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         }],
         birth_date: [function (v) {
           return !!v || 'Birth date is required';
+        }, function (v) {
+          return /^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/.test(v) || 'Birth date must have valid format (YYYY-MM-DD)';
         }],
         gender_type_id: [function (v) {
           return !!v || 'Gender is required';
@@ -2090,7 +2125,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         zip_code: [function (v) {
           return !!v || 'Last name is required';
         }, function (v) {
-          return /\d{2}-\d{3}/.test(v) || 'Zip code must have valid format (XX-XXX)';
+          return /^\d{2}-\d{3}$/.test(v) || 'Zip code must have valid format (XX-XXX)';
         }, function (v) {
           return v && v.length <= 6 || 'Zip code must have valid format (XX-XXX)';
         }],
@@ -2138,6 +2173,34 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       }
     }
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/Subscribers/CreateEdit/Toolbar.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/Subscribers/CreateEdit/Toolbar.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'SubscribersCreateEditToolbar'
 });
 
 /***/ }),
@@ -2196,11 +2259,11 @@ __webpack_require__.r(__webpack_exports__);
     return {
       search: '',
       headers: [{
-        text: 'First name',
-        value: 'first_name'
-      }, {
         text: 'Last name',
         value: 'last_name'
+      }, {
+        text: 'First name',
+        value: 'first_name'
       }, {
         text: 'Birth date',
         value: 'birth_date'
@@ -4084,19 +4147,23 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
-/* harmony import */ var _Components_Subscribers_CreateEdit_Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/Subscribers/CreateEdit/Form */ "./resources/js/Components/Subscribers/CreateEdit/Form.vue");
+/* harmony import */ var _Components_Subscribers_CreateEdit_Toolbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/Subscribers/CreateEdit/Toolbar */ "./resources/js/Components/Subscribers/CreateEdit/Toolbar.vue");
+/* harmony import */ var _Components_Subscribers_CreateEdit_Form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Components/Subscribers/CreateEdit/Form */ "./resources/js/Components/Subscribers/CreateEdit/Form.vue");
 //
 //
 //
 //
 //
 //
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
-    SubscribersAddForm: _Components_Subscribers_CreateEdit_Form__WEBPACK_IMPORTED_MODULE_1__["default"]
+    SubscribersToolbar: _Components_Subscribers_CreateEdit_Toolbar__WEBPACK_IMPORTED_MODULE_1__["default"],
+    SubscribersForm: _Components_Subscribers_CreateEdit_Form__WEBPACK_IMPORTED_MODULE_2__["default"]
   }
 });
 
@@ -4127,8 +4194,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
-    SubscribersIndexToolbar: _Components_Subscribers_Index_Toolbar__WEBPACK_IMPORTED_MODULE_1__["default"],
-    SubscribersIndexTable: _Components_Subscribers_Index_Table__WEBPACK_IMPORTED_MODULE_2__["default"]
+    SubscribersToolbar: _Components_Subscribers_Index_Toolbar__WEBPACK_IMPORTED_MODULE_1__["default"],
+    SubscribersTable: _Components_Subscribers_Index_Table__WEBPACK_IMPORTED_MODULE_2__["default"]
   }
 });
 
@@ -23597,95 +23664,168 @@ var render = function() {
       }
     },
     [
-      _c("v-text-field", {
-        attrs: {
-          rules: _vm.rules.first_name,
-          label: "First name",
-          required: ""
-        },
-        model: {
-          value: _vm.subscriber.first_name,
-          callback: function($$v) {
-            _vm.$set(_vm.subscriber, "first_name", $$v)
-          },
-          expression: "subscriber.first_name"
-        }
-      }),
+      _c(
+        "v-row",
+        [
+          _c(
+            "v-col",
+            { attrs: { cols: "12", md: "4" } },
+            [
+              _c("v-text-field", {
+                attrs: {
+                  rules: _vm.rules.first_name,
+                  label: "First name",
+                  required: ""
+                },
+                model: {
+                  value: _vm.subscriber.first_name,
+                  callback: function($$v) {
+                    _vm.$set(_vm.subscriber, "first_name", $$v)
+                  },
+                  expression: "subscriber.first_name"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-col",
+            { attrs: { cols: "12", md: "4" } },
+            [
+              _c("v-text-field", {
+                attrs: {
+                  rules: _vm.rules.last_name,
+                  label: "Last name",
+                  required: ""
+                },
+                model: {
+                  value: _vm.subscriber.last_name,
+                  callback: function($$v) {
+                    _vm.$set(_vm.subscriber, "last_name", $$v)
+                  },
+                  expression: "subscriber.last_name"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-col",
+            { attrs: { cols: "12", md: "2" } },
+            [
+              _c("v-text-field", {
+                attrs: {
+                  rules: _vm.rules.birth_date,
+                  label: "Birth date",
+                  required: ""
+                },
+                model: {
+                  value: _vm.subscriber.birth_date,
+                  callback: function($$v) {
+                    _vm.$set(_vm.subscriber, "birth_date", $$v)
+                  },
+                  expression: "subscriber.birth_date"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-col",
+            { attrs: { cols: "12", md: "2" } },
+            [
+              _c("v-select", {
+                attrs: {
+                  items: _vm.genderTypes,
+                  rules: _vm.rules.gender_type_id,
+                  label: "Gender",
+                  required: ""
+                },
+                model: {
+                  value: _vm.subscriber.gender_type_id,
+                  callback: function($$v) {
+                    _vm.$set(_vm.subscriber, "gender_type_id", $$v)
+                  },
+                  expression: "subscriber.gender_type_id"
+                }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      ),
       _vm._v(" "),
-      _c("v-text-field", {
-        attrs: { rules: _vm.rules.last_name, label: "Last name", required: "" },
-        model: {
-          value: _vm.subscriber.last_name,
-          callback: function($$v) {
-            _vm.$set(_vm.subscriber, "last_name", $$v)
-          },
-          expression: "subscriber.last_name"
-        }
-      }),
-      _vm._v(" "),
-      _c("v-text-field", {
-        attrs: {
-          rules: _vm.rules.birth_date,
-          label: "Birth date",
-          required: ""
-        },
-        model: {
-          value: _vm.subscriber.birth_date,
-          callback: function($$v) {
-            _vm.$set(_vm.subscriber, "birth_date", $$v)
-          },
-          expression: "subscriber.birth_date"
-        }
-      }),
-      _vm._v(" "),
-      _c("v-select", {
-        attrs: {
-          items: _vm.genderTypes,
-          rules: _vm.rules.gender_type_id,
-          label: "Gender",
-          required: ""
-        },
-        model: {
-          value: _vm.subscriber.gender_type_id,
-          callback: function($$v) {
-            _vm.$set(_vm.subscriber, "gender_type_id", $$v)
-          },
-          expression: "subscriber.gender_type_id"
-        }
-      }),
-      _vm._v(" "),
-      _c("v-text-field", {
-        attrs: { rules: _vm.rules.zip_code, label: "Zip code", required: "" },
-        model: {
-          value: _vm.subscriber.zip_code,
-          callback: function($$v) {
-            _vm.$set(_vm.subscriber, "zip_code", $$v)
-          },
-          expression: "subscriber.zip_code"
-        }
-      }),
-      _vm._v(" "),
-      _c("v-text-field", {
-        attrs: { rules: _vm.rules.city, label: "City", required: "" },
-        model: {
-          value: _vm.subscriber.city,
-          callback: function($$v) {
-            _vm.$set(_vm.subscriber, "city", $$v)
-          },
-          expression: "subscriber.city"
-        }
-      }),
-      _vm._v(" "),
-      _c("v-text-field", {
-        attrs: { rules: _vm.rules.address, label: "Address", required: "" },
-        model: {
-          value: _vm.subscriber.address,
-          callback: function($$v) {
-            _vm.$set(_vm.subscriber, "address", $$v)
-          },
-          expression: "subscriber.address"
-        }
-      }),
+      _c(
+        "v-row",
+        [
+          _c(
+            "v-col",
+            { attrs: { cols: "12", md: "2" } },
+            [
+              _c("v-text-field", {
+                attrs: {
+                  rules: _vm.rules.zip_code,
+                  label: "Zip code",
+                  required: ""
+                },
+                model: {
+                  value: _vm.subscriber.zip_code,
+                  callback: function($$v) {
+                    _vm.$set(_vm.subscriber, "zip_code", $$v)
+                  },
+                  expression: "subscriber.zip_code"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-col",
+            { attrs: { cols: "12", md: "3" } },
+            [
+              _c("v-text-field", {
+                attrs: { rules: _vm.rules.city, label: "City", required: "" },
+                model: {
+                  value: _vm.subscriber.city,
+                  callback: function($$v) {
+                    _vm.$set(_vm.subscriber, "city", $$v)
+                  },
+                  expression: "subscriber.city"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-col",
+            { attrs: { cols: "12", md: "7" } },
+            [
+              _c("v-text-field", {
+                attrs: {
+                  rules: _vm.rules.address,
+                  label: "Address",
+                  required: ""
+                },
+                model: {
+                  value: _vm.subscriber.address,
+                  callback: function($$v) {
+                    _vm.$set(_vm.subscriber, "address", $$v)
+                  },
+                  expression: "subscriber.address"
+                }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      ),
       _vm._v(" "),
       _c(
         "v-btn",
@@ -23699,6 +23839,54 @@ var render = function() {
             ? _c("span", [_vm._v("\n            Update\n        ")])
             : _c("span", [_vm._v("\n            Create\n        ")])
         ]
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/Subscribers/CreateEdit/Toolbar.vue?vue&type=template&id=3c07c5be&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/Subscribers/CreateEdit/Toolbar.vue?vue&type=template&id=3c07c5be& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-toolbar",
+    { attrs: { flat: "" } },
+    [
+      _c(
+        "inertia-link",
+        { attrs: { href: "/subscribers" } },
+        [
+          _c(
+            "v-btn",
+            { attrs: { color: "secondary" } },
+            [
+              _c("v-icon", { staticClass: "mr-2" }, [
+                _vm._v("\n                mdi-arrow-left\n            ")
+              ]),
+              _vm._v("\n            Go to the list\n        ")
+            ],
+            1
+          )
+        ],
+        1
       )
     ],
     1
@@ -26833,7 +27021,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("app-layout", [_c("subscribers-add-form")], 1)
+  return _c(
+    "app-layout",
+    [
+      _c("subscribers-toolbar", { staticClass: "mb-3" }),
+      _vm._v(" "),
+      _c("subscribers-form")
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -26860,9 +27056,9 @@ var render = function() {
   return _c(
     "app-layout",
     [
-      _c("subscribers-index-toolbar", { staticClass: "mb-12" }),
+      _c("subscribers-toolbar", { staticClass: "mb-3" }),
       _vm._v(" "),
-      _c("subscribers-index-table")
+      _c("subscribers-table")
     ],
     1
   )
@@ -82976,6 +83172,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Form_vue_vue_type_template_id_6484b8e4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Form_vue_vue_type_template_id_6484b8e4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Components/Subscribers/CreateEdit/Toolbar.vue":
+/*!********************************************************************!*\
+  !*** ./resources/js/Components/Subscribers/CreateEdit/Toolbar.vue ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Toolbar_vue_vue_type_template_id_3c07c5be___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Toolbar.vue?vue&type=template&id=3c07c5be& */ "./resources/js/Components/Subscribers/CreateEdit/Toolbar.vue?vue&type=template&id=3c07c5be&");
+/* harmony import */ var _Toolbar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Toolbar.vue?vue&type=script&lang=js& */ "./resources/js/Components/Subscribers/CreateEdit/Toolbar.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Toolbar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Toolbar_vue_vue_type_template_id_3c07c5be___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Toolbar_vue_vue_type_template_id_3c07c5be___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Components/Subscribers/CreateEdit/Toolbar.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Components/Subscribers/CreateEdit/Toolbar.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/Components/Subscribers/CreateEdit/Toolbar.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Toolbar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Toolbar.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/Subscribers/CreateEdit/Toolbar.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Toolbar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Components/Subscribers/CreateEdit/Toolbar.vue?vue&type=template&id=3c07c5be&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/Components/Subscribers/CreateEdit/Toolbar.vue?vue&type=template&id=3c07c5be& ***!
+  \***************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Toolbar_vue_vue_type_template_id_3c07c5be___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Toolbar.vue?vue&type=template&id=3c07c5be& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/Subscribers/CreateEdit/Toolbar.vue?vue&type=template&id=3c07c5be&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Toolbar_vue_vue_type_template_id_3c07c5be___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Toolbar_vue_vue_type_template_id_3c07c5be___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

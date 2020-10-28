@@ -1,20 +1,20 @@
 <template>
     <app-layout>
-        <subscribers-index-toolbar class="mb-12" />
-        <subscribers-index-table />
+        <subscribers-toolbar class="mb-3" />
+        <subscribers-table />
     </app-layout>
 </template>
 
 <script>
-import AppLayout from './../../Layouts/AppLayout'
-import SubscribersIndexToolbar from '../../Components/Subscribers/Index/Toolbar';
-import SubscribersIndexTable from '../../Components/Subscribers/Index/Table';
+    import AppLayout from './../../Layouts/AppLayout'
+    import SubscribersToolbar from '../../Components/Subscribers/Index/Toolbar';
+    import SubscribersTable from '../../Components/Subscribers/Index/Table';
 
-export default {
-    components: {
-        AppLayout,
-        SubscribersIndexToolbar,
-        SubscribersIndexTable,
-    },
-}
+    export default {
+        components: {
+            AppLayout,
+            SubscribersToolbar,
+            SubscribersTable,
+        },
+    }
 </script>

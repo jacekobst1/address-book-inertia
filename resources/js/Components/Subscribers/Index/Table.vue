@@ -43,8 +43,8 @@
         data: () => ({
             search: '',
             headers: [
-                { text: 'First name',    value: 'first_name' },
                 { text: 'Last name',     value: 'last_name' },
+                { text: 'First name',    value: 'first_name' },
                 { text: 'Birth date',    value: 'birth_date' },
                 { text: 'Gender',        value: 'gender' },
                 { text: 'Zip code',      value: 'zip_code' },
